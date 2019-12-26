@@ -17,13 +17,13 @@ app.post('/user', (req,res) => {
     res.json(list);
 });
 
-app.delete('/user/:id', (req, res) => {
-    index = list.indexOf(req.params.id);
-    list.splice(index,1);
+app.delete('/user/:id', (req, res) => {    
     if(list.length > 0){
-        res.status(202).json({ ok: true })
+        index = list.indexOf(req.params.id);
+        list.splice(index,1);
+        res.status(202).json({ ok: true });
     } else {
-        res.status(204).json({ ok: true })
+        res.status(204).json({ ok: true });
     }    
 });
 
